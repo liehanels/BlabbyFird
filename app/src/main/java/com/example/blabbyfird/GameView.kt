@@ -3,6 +3,7 @@ package com.example.blabbyfird
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.view.SurfaceHolder
@@ -27,10 +28,10 @@ class GameView(context: Context) : SurfaceView(context), SurfaceHolder.Callback 
     }
 
     override fun surfaceCreated(holder: SurfaceHolder) {
-        val paint = Paint()
-        paint.color = Color.BLUE
-        paint.strokeWidth = 7f
-        paint.style = Paint.Style.FILL
+        birb.draw(canvas = Canvas(), Paint())
+        towers[0].draw(canvas = Canvas())
+        towers[1].draw(canvas = Canvas())
+        thread.setRunning(true)
     }
 
     override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
